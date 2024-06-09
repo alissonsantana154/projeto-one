@@ -4,17 +4,7 @@ import CampoTexto from "../CampoTexto"
 import ListaSuspensa from "../ListaSuspensa"
 import "./Formulario.css"
 
-const Fomulario = (props) => {
-  const times = [
-    "Programação",
-    "Front-End",
-    "Back-End",
-    "Full-Stack",
-    "Mobile",
-    "UI/UX",
-    "Analista de Testes",
-  ]
-
+const Formulario = (props) => {
   const [nome, setNome] = useState("")
   const [cargo, setCargo] = useState("")
   const [imagem, setImagem] = useState("")
@@ -28,6 +18,10 @@ const Fomulario = (props) => {
       imagem,
       time,
     })
+    setNome("")
+    setCargo("")
+    setImagem("")
+    setTime("")
   }
 
   return (
@@ -57,14 +51,14 @@ const Fomulario = (props) => {
         <ListaSuspensa
           obrigatorio={true}
           label="Time"
-          itens={times}
+          itens={props.times}
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
-        <Botao>Criar card</Botao>
+        <Botao>Criar Card</Botao>
       </form>
     </section>
   )
 }
 
-export default Fomulario
+export default Formulario
